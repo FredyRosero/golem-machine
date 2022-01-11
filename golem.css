@@ -1,0 +1,55 @@
+#inputTape {
+    background-image: url("/sq.gif");    
+    width: auto;
+    height: 18px;
+    background-size: 20px;
+    border: none;
+    font-family: monospace;
+    font-size: 13px;
+    padding-left: 6px;
+    letter-spacing: 12px;
+    z-index: 1
+}
+
+#golem {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("/golem_sprite.gif");
+    background-size: 512px;
+    
+    background-color: gray;
+    width: 32px;
+    height: 32px;
+    z-index: 2;
+    animation-iteration-count: infinite
+}
+#golem.idle {
+    background-position-y: calc(-32px * 0);
+    animation-name: playIdle;
+    animation-duration: 0.8s;
+    animation-timing-function: steps(3);    
+}
+@keyframes playIdle {
+    100% {
+        background-position-x: calc(-32px * 3);
+    }
+}
+#golem.movingRight,
+#golem.movingLeft {
+    background-position-y: calc(-32px * 2);
+    animation-name: playWalk;
+    animation-duration: 0.8s;
+    animation-timing-function: steps(5);    
+}
+@keyframes playWalk {
+    100% {
+        background-position-x: calc(-32px * 5);
+    }
+}
+#golem.movingRight {
+    transform: scaleX(1);
+}
+#golem.movingLeft {
+    transform: scaleX(-1);
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Maquina semi-universal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="golem.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="intro">
+            <h1>Maquina semi-universal</h1>
+            <p>Esta es una maquina de Golem.</p>
+        </div>        
+        <div id="world">
+            <div id="golem" class="idle" style="top: 100px; left: 100px;"></div>
+            <p>Ingrese el codigo dr programación</p>
+            <input id="inputTape" type="text" >
+            <div class="row">
+                <button id="start">Start</button>
+                <button id="reset">Reset</button>
+            </div>
+            <div class="row">
+                <label>Velocity</label>
+                <input id="velocity" type="range" value="10" min="1" max="100" step="1">
+            </div>            
+        </div>
+    </div>
+    <div id="dialog">
+        <div>Aquí va el diálogo</div>            
+    </div>    
+    <script src="utils.js"></script>   
+    <script src="golem.js"></script>    
+    <script src="world.js"></script>
+    <script src="index.js"></script>
+    <script src="machine.js"></script>
+</body>
+
+</html>
