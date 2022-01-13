@@ -16,13 +16,13 @@
     top: 0;
     left: 0;
     background-image: url("/golem_sprite.gif");
-    background-size: 512px;
-    
-    background-color: gray;
+    background-size: 512px;    
+    /* background-color: rgb(133, 119, 119); */
     width: 32px;
     height: 32px;
     z-index: 2;
-    animation-iteration-count: infinite
+    animation-iteration-count: infinite;
+    animation-duration: 0.8s;
 }
 #golem.idle {
     background-position-y: calc(-32px * 0);
@@ -39,7 +39,7 @@
 #golem.movingLeft {
     background-position-y: calc(-32px * 2);
     animation-name: playWalk;
-    animation-duration: 0.8s;
+    
     animation-timing-function: steps(5);    
 }
 @keyframes playWalk {
@@ -52,4 +52,89 @@
 }
 #golem.movingLeft {
     transform: scaleX(-1);
+}
+
+#golem.dropping { 
+    background-color: red;
+}
+
+#golem.lifting { 
+    background-color: green;
+}
+
+#dialog {
+    background-color: rgba(0.5, 0.5, 0.5, 0.5);
+    width: calc(90% - 270px); /*210 + 20 + 40*/
+    max-width: 400px;
+    height: 75px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 20px auto;
+    padding: 20px 20px 20px 210px;
+    border-radius: 10px;
+    outline-offset: -5px;
+    outline: white solid 1px;
+    color: white;
+}
+#dialog::before {
+    content: "";
+    /* background-color: red; */
+    display: block;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: -75px;
+    left: 10px;
+    background-image: url("/golem.png");
+    background-size: contain;
+}
+
+#dialog div{
+    /* background-color: blue; */
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+}
+.pebble.p1 {
+    background-color: red;
+}
+.pebble.p2 {
+    background-color: green;
+}
+.pebble.p2 {
+    background-color: blue;
+}
+.pebble {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    position: absolute;
+}
+#golem .pebble {
+    top: 0px;
+}
+#golem .pebble.p1 {
+    left: 0px;
+}
+#golem .pebble.p2 {
+    left: calc(6px * 2);
+}
+#golem .pebble.p3 {
+    left: calc(6px * 3);
+}
+
+#board {
+    background-color: white;
+    border: black solid thin;
+    width: 20px;
+    height: 30px;
+    position: absolute;    
+    right: -15px;
+    top: -15px;
+    color: black;
+    font-size: 10px;
+    line-height: 10px;
+    text-align: center;
 }

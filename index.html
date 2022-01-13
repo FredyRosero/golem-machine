@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Maquina semi-universal</title>
+    <title>Golem automaton</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="golem.css">
 </head>
@@ -13,11 +13,24 @@
 <body>
     <div id="container">
         <div id="intro">
-            <h1>Maquina semi-universal</h1>
-            <p>Esta es una maquina de Golem.</p>
+            <h1>Golem automaton</h1>
+            <p>Esta es un golem automata que puede simular otros automatas finitos deterministicos 
+                y por ende es un automata semi-universal.</p>
         </div>        
         <div id="world">
-            <div id="golem" class="idle" style="top: 100px; left: 100px;"></div>
+            <div id="golem" class="idle" style="top: 100px; left: 100px;">
+                <div class="pebble p1"></div>
+                <div class="pebble p2"></div>
+                <div class="pebble p3"></div>  
+                <div id="board">
+                    <span class="previousCells">??</span><br>
+                    <span class="actualCell">?</span><br>
+                    <span class="nextsCells">??</span><br>
+                </div>          
+            </div>
+            <div id="pebble1" class="pebble p1"></div>
+            <div id="pebble2" class="pebble p2"></div>
+            <div id="pebble3" class="pebble p3"></div>
             <p>Ingrese el codigo dr programación</p>
             <input id="inputTape" type="text" >
             <div class="row">
