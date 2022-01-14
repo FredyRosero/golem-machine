@@ -9,7 +9,8 @@ class Golem {
     boardText;    
     previousCellsHTML;
     actualCellHTML;
-    nextsCellsHTML;    
+    nextsCellsHTML;
+    railTop = -10;    
     width = 32;
     height = 32;
     _home;
@@ -182,7 +183,7 @@ class Golem {
      */
     setDestinationAtTapeEnd() {  
         var pos = { x: this.tape.offsetLeft + this.tape.offsetWidth,
-                    y: this.tape.offsetTop + this.tape.offsetHeight
+                    y: this.tape.offsetTop + this.railTop
         }
         this.setDestinationAt(pos);     
     }    
@@ -192,7 +193,7 @@ class Golem {
      */
     setDestinationAtTapeBeginning() {  
         var pos = { x: this.tape.offsetLeft,
-                    y: this.tape.offsetTop
+                    y: this.tape.offsetTop + this.railTop
         }
         this.setDestinationAt(pos);     
     }        
@@ -500,7 +501,7 @@ class Golem {
     }
 
     setDestinationAtCell(n) {
-        let y = this.tape.offsetTop - 10;
+        let y = this.tape.offsetTop + this.railTop;
         let x = this.tape.offsetLeft + CELLTAPEWIDTH/2;
         x += CELLTAPEWIDTH*n;
         let pos = {x:x,y:y};

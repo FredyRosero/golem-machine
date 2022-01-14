@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Golem automaton</title>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/golem.css">
+<style>
+.golem {
+    width: 32px;
+    height: 32px;      
+}
+.golem .character {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-image: url("/img/golem_sprite.gif");
+    background-size: 512px;      
+    animation-iteration-count: infinite;
+    animation-duration: 0.8s;    
+}
+.golem.idle .character{
+    background-position-y: calc(-32px * 0);
+    animation-name: playIdle;
+    animation-duration: 0.8s;
+    animation-timing-function: steps(3);    
+}
+@keyframes playIdle {
+    100% {
+        background-position-x: calc(-32px * 3);
+    }
+}
+.golem.movingRight .character,
+.golem.movingLeft .character{
+    background-position-y: calc(-32px * 2);
+    animation-name: playWalk;
+    
+    animation-timing-function: steps(5);    
+}
+@keyframes playWalk {
+    100% {
+        background-position-x: calc(-32px * 5);
+    }
+}
+.golem.movingRight .character{
+    transform: scaleX(1);
+}
+.golem.movingLeft .character{
+    transform: scaleX(-1);
+}
+
+.golem.dropping .character{ 
+    background-color: red;
+}
+
+.golem.lifting { 
+    background-color: green;
+}
+
+.golem.done { 
+    background-color: blue;
+}
+
+.golem.accepted { 
+    background-color: cyan;
+}
+
+.golem.rejected { 
+    background-color: magenta;
+}
+
+.golem.born { 
+    background-color: yellow;
+}
+
+</style>
+</head>
+
+<body>
+    <div class="golem idle" >
+        <div class="character"></div>       
+    </div>
+    <div class="golem movingRight">
+        <div class="character"></div>       
+    </div>    
+    <div class="golem dropping">
+        <div class="character"></div>       
+    </div>     
+    <div class="golem lifting">
+        <div class="character"></div>       
+    </div>    
+    <div class="golem done">
+        <div class="character"></div>       
+    </div>     
+    <div class="golem accepted">
+        <div class="character"></div>       
+    </div>     
+    <div class="golem rejected">
+        <div class="character"></div>       
+    </div>        
+    <div class="golem born">
+        <div class="character"></div>       
+    </div>                   
+</body>
+
+</html>

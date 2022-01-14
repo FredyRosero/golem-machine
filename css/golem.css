@@ -1,5 +1,5 @@
 #inputTape {
-    background-image: url("/sq.gif");    
+    background-image: url("/img/cell_square.gif");    
     width: auto;
     height: 18px;
     background-size: 20px;
@@ -14,17 +14,22 @@
 #golem {
     position: absolute;
     top: 0;
-    left: 0;
-    background-image: url("/golem_sprite.gif");
-    background-size: 512px;    
     /* background-color: rgb(133, 119, 119); */
     width: 32px;
     height: 32px;
     z-index: 2;
-    animation-iteration-count: infinite;
-    animation-duration: 0.8s;
+
 }
-#golem.idle {
+#golem .character {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-image: url("/img/golem_sprite.gif");
+    background-size: 512px;      
+    animation-iteration-count: infinite;
+    animation-duration: 0.8s;    
+}
+#golem.idle .character{
     background-position-y: calc(-32px * 0);
     animation-name: playIdle;
     animation-duration: 0.8s;
@@ -35,8 +40,8 @@
         background-position-x: calc(-32px * 3);
     }
 }
-#golem.movingRight,
-#golem.movingLeft {
+#golem.movingRight .character,
+#golem.movingLeft .character{
     background-position-y: calc(-32px * 2);
     animation-name: playWalk;
     
@@ -47,14 +52,14 @@
         background-position-x: calc(-32px * 5);
     }
 }
-#golem.movingRight {
+#golem.movingRight .character{
     transform: scaleX(1);
 }
-#golem.movingLeft {
+#golem.movingLeft .character{
     transform: scaleX(-1);
 }
 
-#golem.dropping { 
+#golem.dropping .character{ 
     background-color: red;
 }
 
@@ -87,7 +92,7 @@
     position: absolute;
     top: -75px;
     left: 10px;
-    background-image: url("/golem.png");
+    background-image: url("/img/golem_big.png");
     background-size: contain;
 }
 
@@ -103,7 +108,7 @@
 .pebble.p2 {
     background-color: green;
 }
-.pebble.p2 {
+.pebble.p3 {
     background-color: blue;
 }
 .pebble {
@@ -111,18 +116,19 @@
     height: 6px;
     border-radius: 3px;
     position: absolute;
+    z-index: 3;
 }
 #golem .pebble {
     top: 0px;
 }
 #golem .pebble.p1 {
-    left: 0px;
+    left: calc(6px * 0);
 }
 #golem .pebble.p2 {
-    left: calc(6px * 2);
+    left: calc(6px * 1);
 }
 #golem .pebble.p3 {
-    left: calc(6px * 3);
+    left: calc(6px * 2);
 }
 
 #board {
