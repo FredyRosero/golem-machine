@@ -12,8 +12,8 @@ class World {
 
         //Tape
         this.tape = document.getElementById("inputTape");
-        this.tape.value = "0123456789";
-/*         this.tape.value = "$1#11##111##"; //Q
+        //this.tape.value = "0123456789";
+        this.tape.value = "$1#11##111##"; //Q
         this.tape.value += "11##"; //A 
         this.tape.value += "1#11##"; //Sigma=0,1
         this.tape.value += "10101#"; //d(q0,0)=q0

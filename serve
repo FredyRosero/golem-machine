@@ -1,0 +1,14 @@
+
+# Serving ...
+# Fetching project configuration ...
+[INFO] 18:33:48 ts-node-dev ver. 1.1.8 (using ts-node ver. 9.1.1, typescript ver. 3.9.10)
+# Serving docs on http://localhost:3000/golem-machine
+# building ........ docs\md\index.md
+# built:: ......... index.html
+# building ........ docs\md\docs\cheat-sheet.md
+# built:: ......... docs\cheat-sheet.html
+# building ........ docs\md\docs\code-features.md
+# built:: ......... docs\code-features.html
+# building ........ docs\assets\codedoc-styles.css
+# built:: ......... docs\assets\codedoc-styles.css
+# building ........ docs\assets\codedoc-bundle.js

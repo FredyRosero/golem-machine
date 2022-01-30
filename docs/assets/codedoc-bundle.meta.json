@@ -1,0 +1,121 @@
+{
+  "init": [
+    {
+      "name": "initJssCs",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/transport/setup-jss.js",
+      "hash": "RnjWch26254lgUJothC35w=="
+    },
+    {
+      "name": "installTheme",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/content/theme.ts",
+      "hash": "tOVyqf1fdh9u6V9We9Sf7A=="
+    },
+    {
+      "name": "codeSelection",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/code/selection.js",
+      "hash": "HEi2HGr03gVmLhma+3Lyrw=="
+    },
+    {
+      "name": "sameLineLengthInCodes",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/code/same-line-length.js",
+      "hash": "Zy2ubodRfSpwIWV7iSAxwQ=="
+    },
+    {
+      "name": "initHintBox",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/code/line-hint/index.js",
+      "hash": "l2ziuosrAqVkz8HiUi8waw=="
+    },
+    {
+      "name": "initCodeLineRef",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/code/line-ref/index.js",
+      "hash": "SlY3sWnNK/+PCts6tNvGXQ=="
+    },
+    {
+      "name": "initSmartCopy",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/code/smart-copy.js",
+      "hash": "JU0UcOMKlP9YHwUIXGsSAg=="
+    },
+    {
+      "name": "copyHeadings",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/heading/copy-headings.js",
+      "hash": "OBDlZF+lblWcoBsRfXGpNw=="
+    },
+    {
+      "name": "contentNavHighlight",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/page/contentnav/highlight.js",
+      "hash": "NWoLr5vf2Y6kkzSi/bemiQ=="
+    },
+    {
+      "name": "loadDeferredIFrames",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/transport/deferred-iframe.js",
+      "hash": "260iQv/DfdVracn6s5qL0w=="
+    },
+    {
+      "name": "smoothLoading",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/transport/smooth-loading.js",
+      "hash": "a3DzK6JBG4iagUy5IIDgKg=="
+    },
+    {
+      "name": "tocHighlight",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/page/toc/toc-highlight.js",
+      "hash": "WFrBtGX+5XqPeJ8q/6JK/Q=="
+    },
+    {
+      "name": "postNavSearch",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/page/toc/search/post-nav/index.js",
+      "hash": "LbR9D2NHGh7xB28vu0AaSg=="
+    },
+    {
+      "name": "copyLineLinks",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/code/line-links/copy-line-link.js",
+      "hash": "74/saoVG3AyV2G08fuVwyA=="
+    },
+    {
+      "name": "gatherFootnotes",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/footnote/gather-footnotes.js",
+      "hash": "GzT/S3NhU1eCEv7nBWmSMA=="
+    }
+  ],
+  "components": [
+    {
+      "name": "ToCPrevNext",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/page/toc/prevnext/index.js",
+      "hash": "CbAVNzluJNH0MNoEAllTvw=="
+    },
+    {
+      "name": "GithubSearch",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/misc/github/search.js",
+      "hash": "qmHaY3dpQQt0GMQyDGqmWQ=="
+    },
+    {
+      "name": "ToCToggle",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/page/toc/toggle/index.js",
+      "hash": "Ere7dnk/2PAZYMbBXz5u8A=="
+    },
+    {
+      "name": "DarkModeSwitch",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/darkmode/index.js",
+      "hash": "nLnbzUn9JX1yeVB2f/5NBw=="
+    },
+    {
+      "name": "ConfigTransport",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/transport/config.js",
+      "hash": "2klvdLwhsO1Zi13+qwqBiQ=="
+    },
+    {
+      "name": "TabSelector",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/tabs/selector.js",
+      "hash": "XHnGVKibTuTCJKApsanLwQ=="
+    },
+    {
+      "name": "CollapseControl",
+      "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/components/collapse/collapse-control.js",
+      "hash": "OtgC9k+QJrzT+5t6aH0DuA=="
+    }
+  ],
+  "renderer": {
+    "name": "getRenderer",
+    "filename": "C:/Users/fredy_000/Documents/UN/ITC 2021-2/golem-machine/.codedoc/node_modules/@codedoc/core/dist/es5/transport/renderer.js",
+    "hash": "qiB7wHvo7hhxutKIUeT94g=="
+  }
+}
