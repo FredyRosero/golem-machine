@@ -16,9 +16,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
     <!-- The loading of KaTeX is deferred to speed up page rendering -->
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
-    <!-- To automatically render math in text elements, include the auto-render extension: -->
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
-        onload="renderMathInElement(document.body);"></script>    
+    <!-- To automatically render math in text elements, include the auto-render extension: -->    
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+    <!-- https://katex.org/docs/autorender.html -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+    });
+    </script>        
 
     <!-- Mermaid -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
@@ -29,10 +45,16 @@
         <div id="intro">
             <h1>Golem automaton</h1>
             <p>Esta es un golem automata que puede simular otros automatas finitos deterministicos 
-                y por ende es un automata semi-universal.</p>
+                y por ende es un automata semi-universal. $c = \pm\sqrt{a^2 + b^2}$ la anterior es una ecuación en línea.</p>
         </div>       
-        
-
+        <p>
+            A continuación unas ecuaciones en bloque:
+            $$\begin{alignat}{2}
+            x(t) & = X+v\cos \theta t \\
+            y(t)& =Y+c\sin \theta t-\dfrac{1}{2}gt^2 \\
+            \end{alignat}$$
+            
+        </p>
         Here is one mermaid diagram:
         <p>Input your data:</p>
         <div class="input">
