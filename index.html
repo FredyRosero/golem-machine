@@ -6,8 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Golem automaton</title>
+
+    <!-- Estilos de la presentación-->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Estilos del Golem-->
     <link rel="stylesheet" href="css/golem.css">
+
+    <!-- KaTeX-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>    
+
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 </head>
 
 <body>
@@ -17,7 +31,7 @@
             <p>Esta es un golem automata que puede simular otros automatas finitos deterministicos 
                 y por ende es un automata semi-universal.</p>
         </div>       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        
 
         Here is one mermaid diagram:
         <p>Input your data:</p>
@@ -63,6 +77,8 @@
             });
             document.querySelector("#render").click();
         </script>
+
+        <!-- Presentación del Golem -->
         <div id="world">
             <div id="golem" class="idle" style="top: 100px; left: 100px;">
                 <div class="pebble p1"></div>
