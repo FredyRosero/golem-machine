@@ -22,24 +22,25 @@
         Here is one mermaid diagram:
         <p>Input your data:</p>
         <div class="input">
-            <textarea id="input_ta">graph LR
-                A((A))--0/0-->C((C))
-                A((A))--1/0-->B((B))
+            <textarea id="input_ta" rows="20" cols="50">graph LR
+                Q0((Q0))--0/0-->C((C))
+                Q0((Q0))--1/0-->B((B))
              
                 B((B))--0/0-->C((C))
-                B((B))--1/0-->A((A))
+                B((B))--1/0-->Q0((Q0))
              
                 C((C))--0/0-->C((C))
                 C((C))--1/0-->DF((DF))
              
                 DF((DF))--0/0-->E((E))
-                DF((DF))--1/0-->A((A))
+                DF((DF))--1/0-->Q0((Q0))
              
                 E((E))--0/0-->C((C))
                 E((E))--1/1-->DF((DF))
              
                 style DF fill:#f9f,stroke:#333,stroke-width:4px</textarea>
             <br>
+            <!-- https://mermaid-js.github.io/mermaid/#/flowchart?id=styling-and-classes -->
             <button id="render">renderizar</button>
         </div>
         <div>
@@ -60,6 +61,7 @@
                 };
                 mermaid.render("preparedScheme", code, insert);
             });
+            document.querySelector("#render").click();
         </script>
         <div id="world">
             <div id="golem" class="idle" style="top: 100px; left: 100px;">
