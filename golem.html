@@ -1,0 +1,40 @@
+<div id="container">
+    <div id="intro">
+        <h1>Golem automaton</h1>
+        <p>Esta es un golem automata que puede simular otros automatas finitos deterministicos 
+            y por ende es un automata semi-universal.</p>
+    </div>        
+    <div id="world">
+        <div id="golem" class="idle" style="top: 100px; left: 100px;">
+            <div class="pebble p1"></div>
+            <div class="pebble p2"></div>
+            <div class="pebble p3"></div>  
+            <div id="board">
+                <span class="previousCells">??</span><br>
+                <span class="actualCell">?</span><br>
+                <span class="nextsCells">??</span><br>
+            </div>
+            <div class="character"></div>       
+        </div>
+        <div id="pebble1" class="pebble p1"></div>
+        <div id="pebble2" class="pebble p2"></div>
+        <div id="pebble3" class="pebble p3"></div>
+        <p>Ingrese el codigo dr programación</p>
+        <input id="inputTape" type="text" >
+        <div class="row">
+            <button id="start">Start</button>
+            <button id="reset">Reset</button>
+        </div>
+        <div class="row">
+            <label>Velocity</label>
+            <input id="velocity" type="range" value="10" min="1" max="100" step="1">
+        </div>            
+    </div>
+</div>
+<div id="dialog">
+    <div>Aquí va el diálogo</div>            
+</div>    
+<script src="js/utils.js"></script>   
+<script src="js/golem.js"></script>    
+<script src="js/world.js"></script>
+<script src="js/index.js"></script>

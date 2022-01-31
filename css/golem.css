@@ -1,3 +1,39 @@
+#container {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 50px);
+    padding: 10px 10px 150px 10px;
+    justify-content: flex-start;
+}
+#intro {
+    height: 100px;
+    /* background-color: hotpink; */
+    padding: 0px 20px 30px 20px;
+}
+
+#world {
+    height: 250px;
+    background-color: gray;
+    /* width: 600px; */
+    overflow: auto;
+    padding: 5px;
+    position: relative;
+}
+#start {
+    margin: 5px;
+    z-index: 4;
+    position: relative; /* for the z-index */
+    height: 30px;
+    background: none;
+}
+#reset {
+    margin: 5px;
+    height: 30px;
+}
+.row {
+    display: flex;
+}
 #inputTape {
     background-image: url("../img/cell_square.gif");    
     width: auto;
