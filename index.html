@@ -16,7 +16,35 @@
             <h1>Golem automaton</h1>
             <p>Esta es un golem automata que puede simular otros automatas finitos deterministicos 
                 y por ende es un automata semi-universal.</p>
-        </div>        
+        </div>       
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+        Here is one mermaid diagram:
+        <p>Input your data:</p>
+        <div class="input">
+          <textarea style="width:300px; height:200px"></textarea>
+          <br>
+          <button>render</button>
+        </div>
+        <div>
+          <p>output:</p>        
+            <div class="render_container" style = "width:300px; height:200px; border:thin solid silver" >
+                <div class="flowchart"></div>
+            </div>
+        </div>    
+        <script>
+            document.querySelector("button").addEventListener("click", (e) => {
+                const output = document.querySelector(".flowchart");
+                if (output.firstChild !== null) {
+                  output.innerHTML = "";
+                }
+                const code = document.querySelector(" textarea").value.trim();
+                let insert = function (code) {
+                  output.innerHTML = code;
+                };
+                mermaid.render("preparedScheme", code, insert);
+            });
+        </script>
         <div id="world">
             <div id="golem" class="idle" style="top: 100px; left: 100px;">
                 <div class="pebble p1"></div>
