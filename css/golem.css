@@ -1,6 +1,11 @@
+
+@font-face {
+    font-family: Inversionz-Unboxed;
+    src: url('Inversionz-Unboxed.ttf')  format('truetype');
+}
 #world {
     height: 30px;
-    background-color: gray;
+    /* background-color: gray; */
     /* width: 600px; */
     overflow-x: visible;
     overflow-y: visible;
@@ -28,12 +33,11 @@
     height: 20px;
     background-size: 20px;
     border: 1px solid gray;
-    font-family: monospace;
-    font-size: calc(20px * 0.66);
-    padding: 0 0 0 6px;
+    font-family: Inversionz-Unboxed;
+    font-size: 32px;
+    padding: 0;
     margin-right: 100px;
-    letter-spacing: calc(calc(20px * 0.66) * 0.9095);
-    z-index: 1
+    color: #444;
 }
 #golemsHome {
     height: 40px;

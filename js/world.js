@@ -1,6 +1,6 @@
 // Const
 const CELLTAPEWIDTH = 20;
-const CELLTAPEWIDTHPADDING = 8;
+const CELLTAPEWIDTHPADDING = 0;
 const TIME = 100;
 var intervalId;
 
