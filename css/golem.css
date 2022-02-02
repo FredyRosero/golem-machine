@@ -1,31 +1,15 @@
-#container {
-    /* background-color: green; */
-    display: flex;
-    flex-direction: column;
-    height: calc(100% - 50px);
-    padding: 10px 10px 150px 10px;
-    justify-content: flex-start;
-}
-#intro {
-    height: 100px;
-    /* background-color: hotpink; */
-    padding: 0px 20px 30px 20px;
-}
-
 #world {
-    height: 250px;
+    height: 30px;
     background-color: gray;
     /* width: 600px; */
-    overflow: auto;
+    overflow-x: visible;
+    overflow-y: visible;
     padding: 5px;
-    position: relative;
+    /* position: relative; */
 }
 #start {
     margin: 5px;
-    z-index: 4;
-    position: relative; /* for the z-index */
     height: 30px;
-    background: none;
 }
 #reset {
     margin: 5px;
@@ -34,19 +18,30 @@
 .row {
     display: flex;
 }
+
+.controls label {
+    line-height: 2;
+}
 #inputTape {
     background-image: url("../img/cell_square.gif");    
     width: auto;
-    height: 18px;
+    height: 20px;
     background-size: 20px;
-    border: none;
+    border: 1px solid gray;
     font-family: monospace;
-    font-size: 13px;
-    padding-left: 6px;
-    letter-spacing: 12px;
+    font-size: calc(20px * 0.66);
+    padding: 0 0 0 6px;
+    margin-right: 100px;
+    letter-spacing: calc(calc(20px * 0.66) * 0.9095);
     z-index: 1
 }
-
+#golemsHome {
+    height: 40px;
+    width: 40px;
+    border: 1px solid gray;
+    margin: 5px;
+    float: left;
+}
 #golem {
     position: absolute;
     top: 0;

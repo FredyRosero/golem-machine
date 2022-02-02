@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Golem automaton</title>
 
@@ -44,61 +44,19 @@
     <div id="container">
         <div id="intro">
             <h1>Golem automaton</h1>
+            <div id="golemsHome"></div>
             <p>Esta es un golem automata que puede simular otros automatas finitos deterministicos 
                 y por ende es un automata semi-universal. $c = \pm\sqrt{a^2 + b^2}$ la anterior es una ecuación en línea.</p>
+            <p>
+                A continuación unas ecuaciones en bloque:
+                $$\begin{alignat}{2}
+                x(t) & = X+v\cos \theta t \\
+                y(t)& =Y+c\sin \theta t-\dfrac{1}{2}gt^2 \\
+                \end{alignat}$$
+                
+            </p>
+
         </div>       
-        <p>
-            A continuación unas ecuaciones en bloque:
-            $$\begin{alignat}{2}
-            x(t) & = X+v\cos \theta t \\
-            y(t)& =Y+c\sin \theta t-\dfrac{1}{2}gt^2 \\
-            \end{alignat}$$
-            
-        </p>
-        Here is one mermaid diagram:
-        <p>Input your data:</p>
-        <div class="input">
-            <textarea id="input_ta" rows="20" cols="50">graph LR
-                Q0((Q0))--0/0-->C((C))
-                Q0((Q0))--1/0-->B((B))
-             
-                B((B))--0/0-->C((C))
-                B((B))--1/0-->Q0((Q0))
-             
-                C((C))--0/0-->C((C))
-                C((C))--1/0-->DF((DF))
-             
-                DF((DF))--0/0-->E((E))
-                DF((DF))--1/0-->Q0((Q0))
-             
-                E((E))--0/0-->C((C))
-                E((E))--1/1-->DF((DF))
-             
-                style DF fill:#f9f,stroke:#333,stroke-width:4px</textarea>
-            <br>
-            <!-- https://mermaid-js.github.io/mermaid/#/flowchart?id=styling-and-classes -->
-            <button id="render">renderizar</button>
-        </div>
-        <div>
-            <p>output:</p>        
-            <div class="render_container" style = "width:300px; height:200px; border:thin solid silver" >
-                <div class="flowchart"></div>
-            </div>
-        </div>    
-        <script>
-            document.querySelector("#render").addEventListener("click", (e) => {
-                const output = document.querySelector(".flowchart");
-                if (output.firstChild !== null) {
-                  output.innerHTML = "";
-                }
-                const code = document.querySelector(" textarea").value.trim();
-                let insert = function (code) {
-                  output.innerHTML = code;
-                };
-                mermaid.render("preparedScheme", code, insert);
-            });
-            document.querySelector("#render").click();
-        </script>
 
         <!-- Presentación del Golem -->
         <div id="world">
@@ -116,17 +74,14 @@
             <div id="pebble1" class="pebble p1"></div>
             <div id="pebble2" class="pebble p2"></div>
             <div id="pebble3" class="pebble p3"></div>
-            <p>Ingrese el codigo dr programación</p>
-            <input id="inputTape" type="text" >
-            <div class="row">
-                <button id="start">Start</button>
-                <button id="reset">Reset</button>
-            </div>
-            <div class="row">
-                <label>Velocity</label>
-                <input id="velocity" type="range" value="10" min="1" max="100" step="1">
-            </div>            
+            <input id="inputTape" type="text" >        
         </div>
+        <div class="controls row">
+            <button id="start">Start</button>
+            <button id="reset">Reset</button>
+            <label>Velocity</label>
+            <input id="velocity" type="range" value="10" min="1" max="100" step="1">
+        </div>            
     </div>
     <div id="dialog">
         <div>Aquí va el diálogo</div>            

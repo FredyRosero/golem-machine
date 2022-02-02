@@ -30,7 +30,7 @@ class World {
 
         //Golem
         this.golem = new Golem(document.getElementById("golem"));                     
-        this.golem.home = startButton;
+        this.golem.home = document.getElementById("golemsHome");;
         this.golem.dialogHTML = document.getElementById("dialog");;
         this.golem.boardHTML = document.getElementById("board");;
         this.golem.previousCellsHTML = document.querySelector("#board .previousCells");
@@ -45,7 +45,7 @@ class World {
         })
         this.htmlContainer.appendChild(this.golem.htmlElement);
         
-        this.golem.centerPos = centerOfHtmlBox(startButton);   
+        this.golem.centerPos = centerOfHtmlBox(this.golem.home);
         
         //Start button
         var velocitySlider = document.getElementById("velocity");

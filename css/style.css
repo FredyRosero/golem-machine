@@ -1,0 +1,15 @@
+#container {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 50px);
+    padding: 10px 10px 150px 10px;
+    justify-content: flex-start;
+}
+#intro {
+    height: auto;
+    max-width: 800px; 
+    margin: auto;
+    /* background-color: hotpink; */
+    padding: 0px 20px 30px 20px;
+}
