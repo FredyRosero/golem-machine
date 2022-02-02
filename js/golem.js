@@ -27,6 +27,9 @@ class Golem {
     previousCells = "??";
     nextsCells = "??";
     velocity = 10;   
+    charSeparator = "#"
+    charBegin = "$"
+    charEnd = "^"
 
     //States
     isStarted = false;
@@ -485,7 +488,8 @@ class Golem {
      * @returns Return the index of the cell in which it's standing.
      */
     getActualCellIndex() {
-        let x = this.tape.offsetLeft + this.centerPos.x + this.width/2;
+        let x = this.centerPos.x - this.tape.offsetLeft + this.width/2;
+        console.log('getActualCellIndex x:',x)
         x = Math.floor(x / CELLTAPEWIDTH)-1;
         if( x > this.w_m.length-1) return this.w_m.length-1;
         else if (x <= 0) return 0;

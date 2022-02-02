@@ -170,8 +170,9 @@
 #board {
     background-color: white;
     border: black solid thin;
-    width: 20px;
+    width: auto;
     height: 30px;
+    padding: 0 5px;
     position: absolute;    
     right: -15px;
     top: -15px;
