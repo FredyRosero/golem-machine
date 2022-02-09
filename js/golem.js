@@ -293,7 +293,6 @@ class Golem {
 
         }
 
-
         if (this.actualCell == this.charSeparator) {
             this.contadorSeparadores++
             this.contadorSimbolos = 0
@@ -309,7 +308,7 @@ class Golem {
         //if (this.searches.length > 0)
 
         // Update html
-        this.previousCellsHTML.innerHTML = this.contadorSimbolos;
+        this.previousCellsHTML.innerHTML = this.contadorSimbolos + ', ' + this.contadorSimbolos;
         this.actualCellHTML.innerHTML = this.actualCell;
         this.nextsCellsHTML.innerHTML = this.nextsCells;
     }
@@ -322,13 +321,16 @@ class Golem {
      * A infinite loop that updates the golem each frame.
      */
     update() {
+        console.log("contadorSeparadores: ",this.contadorSeparadores)
+
         if (this._isPaused) {
             this.htmlElement.removeAttribute("class");
             this.htmlElement.classList.add("idle");
             return;
         }
 
-        if (this.isReading) this.readCells()
+        //if (this.isReading) 
+        this.readCells()
 
         this.updateDialog(this.actualCell);
 
@@ -543,6 +545,13 @@ class Golem {
         })    
 
         this.tasksAtStops.push(()=>{
+            console.log("Soltar piedra")
+            this.nextStops.push(1);
+            
+            return true;
+        })       
+
+        this.tasksAtStops.push(()=>{
             console.log("Tarea 1")
             this.nextStops.push(0)
             this.nextStopTime = 2000;
@@ -553,14 +562,10 @@ class Golem {
         this.searches.push(()=>{
             if(this.contadorSeparadores == 3) {
                 console.log("3 #'s",this.actualCellIndex)
-                this.nextStops.push(this.actualCellIndex+5);
+                this.nextStops.push(this.actualCellIndex+1);
                 //this.nextStops.push(5)
+                this.dropPebble('I');
                 this.nextStops.shift();
-                this.tasksAtStops.push(()=>{
-                    this.nextStops.push(1);
-                    this.dropPebble('I');
-                    return true;
-                })
                 return true;
             }            
         })
