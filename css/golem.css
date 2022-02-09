@@ -60,14 +60,13 @@
     width: 100%;
     left: 0;
     background-image: url("../img/golem_sprite.gif");
-    background-size: 512px;      
+    background-size: 256px;      
     animation-iteration-count: infinite;
-    animation-duration: 0.8s;    
+    animation-duration: 0.9s;    
 }
 #golem.idle .character{
     background-position-y: calc(-32px * 0);
     animation-name: playIdle;
-    animation-duration: 0.8s;
     animation-timing-function: steps(3);    
 }
 @keyframes playIdle {
@@ -77,14 +76,13 @@
 }
 #golem.movingRight .character,
 #golem.movingLeft .character{
-    background-position-y: calc(-32px * 2);
-    animation-name: playWalk;
-    
-    animation-timing-function: steps(5);    
+    background-position-y: calc(-32px * 1);
+    animation-name: playWalk;    
+    animation-timing-function: steps(8);    
 }
 @keyframes playWalk {
     100% {
-        background-position-x: calc(-32px * 5);
+        background-position-x: calc(-32px * 8);
     }
 }
 #golem.movingRight .character{
@@ -94,14 +92,36 @@
     transform: scaleX(-1);
 }
 
-#golem.dropping .character{ 
-    background-color: red;
+.golem.lifting .character { 
+	background-position-y: calc(-32px * 2);
+    animation-name: playLifting;
+    animation-timing-function: steps(4); 
+	animation-iteration-count: 2;
+	animation-direction: alternate;	
+}
+@keyframes playLifting {
+    100% { background-position-x: calc(-32px * 4); }
 }
 
-#golem.lifting { 
-    background-color: green;
+.golem.accepted .character{ 
+    background-position-y: calc(-32px * 3);
+    animation-name: playAccepted;
+    animation-timing-function: steps(4);    
+	animation-iteration-count: 1;	
+	animation-fill-mode: forwards;
+}
+@keyframes playAccepted {
+    100% { background-position-x: calc(-32px * 4); }
 }
 
+.golem.rejected .character{ 
+    background-position-y: calc(-32px * 4);
+    animation-name: playRejected;
+    animation-timing-function: steps(2);    
+}
+@keyframes playRejected {
+    100% { background-position-x: calc(-32px * 2); }
+}
 #dialog {
     display: none;
     background-color: rgba(0.5, 0.5, 0.5, 0.5);
