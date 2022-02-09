@@ -30,9 +30,13 @@ class World {
 
         //Golem
         this.golem = new Golem(document.getElementById("golem"));                     
-        this.golem.home = document.getElementById("golemsHome");;
-        this.golem.dialogHTML = document.getElementById("dialog");;
-        this.golem.boardHTML = document.getElementById("board");;
+        this.golem.home = document.getElementById("golemsHome");
+        this.golem.dialogHTML = document.getElementById("dialog");
+        this.golem.boardHTML = document.getElementById("board");
+        this.golem.piedraI_HTML = document.getElementById("piedraI");
+        this.golem.piedraQ_HTML = document.getElementById("piedraQ");
+        this.golem.piedraT_HTML = document.getElementById("piedraT");
+        this.golem.character = document.querySelector("#golem .character");
         this.golem.previousCellsHTML = document.querySelector("#board .previousCells");
         this.golem.actualCellHTML = document.querySelector("#board .actualCell");
         this.golem.nextsCellsHTML = document.querySelector("#board .nextsCells");

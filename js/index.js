@@ -6,6 +6,8 @@ document.getElementById("start").addEventListener("click", onClickStart);
 
 document.getElementById("reset").addEventListener("click", onClickReset); 
 
+document.getElementById("reset").addEventListener("click", onClickReset); 
+
 function onClickStart() {    
     if (golem.isPaused) {
         golem.start();  

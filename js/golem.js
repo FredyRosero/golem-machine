@@ -18,19 +18,21 @@ class Golem {
     //Logic
     destX = 0;
     destY = 0;
-    stops = [];
-    tasks = [];
+    nextStops = [];
+    tasksAtStops = [];
+    searches = []
     tape;
-    w_m = "";
     actualCellIndex = 0;
     actualCell = "?";
+    reading = "?"
     previousCells = "??";
     nextsCells = "??";
     velocity = 10;
     charSeparator = "#"
     charBegin = "$"
     charEnd = "^"
-    contador=0
+    contadorSimbolos=0
+    contadorSeparadores=0
     _piedraI = 0
     _piedraT = 0
     _piedraQ = 2
@@ -50,11 +52,15 @@ class Golem {
     _isAtStop = false;
     _isDone = false;
     hasToDrop = false;
+    estado = "";
 
     //Animation
     animationInterval;
-    stopTime = 500; //ms    
-
+    nextStopTime = 500; //ms    
+    piedraI_HTML;
+    piedraT_HTML;
+    piedraQ_HTML;
+    character;
     /**
      * CONSTRUCTOR:
      */
@@ -72,22 +78,45 @@ class Golem {
         return this._home;
     }
 
+    set w_m(val) {
+        //console.log("set home",val)
+        this.tape.value = val;
+    }
+    get w_m() {
+        return this.tape.value;
+    }    
+
     set piedraI(value) {
-        this._piedraI = value
+        this._piedraI = value;        
+        let pos = this.getPositionAtCell(value)
+        let htmlEl = this.piedraI_HTML
+        let posx = pos.x - (htmlEl.offsetWidth / 2) + 'px'; 
+        console.log(htmlEl,pos,posx)
+        htmlEl.style.left = posx;     
     }
     get piedraI() {
         return this._piedraI;
     }
 
     set piedraT(value) {
-        this._piedraI = value
-    }
+        this._piedraI = value;
+        let pos = this.getPositionAtCell(value)
+        let htmlEl = this.piedraT_HTML
+        let posx = pos.x - (htmlEl.offsetWidth / 2) + 'px'; 
+        console.log(htmlEl,pos,posx)
+        htmlEl.style.left = posx;
+    };
     get piedraT() {
         return this._piedraI;
     }
     
     set piedraQ(value) {
-        this._piedraI = value
+        this._piedraI = value;
+        let pos = this.getPositionAtCell(value)
+        let htmlEl = this.piedraQ_HTML
+        let posx = pos.x - (htmlEl.offsetWidth / 2) + 'px'; 
+        console.log(htmlEl,pos,posx)
+        htmlEl.style.left = posx;   
     }
     get piedraQ() {
         return this._piedraI;
@@ -232,25 +261,8 @@ class Golem {
      * @returns True if the golem has stops to walk.
      */
     hasToWalk() {
-        return this.stops.length > 0;
+        return this.nextStops.length > 0;
     }
-
-    /*     isOnRail() {
-            var opos = this.centerPos;
-            var dpos = { x: this.tape.offsetLeft,
-                         y: this.tape.offsetTop      
-            }
-    
-            //Check if arrived       
-            if ((opos.y == dpos.y) ) {
-                this.onArrived();    
-                return;              
-            } else {
-                this.isAtStop = false; 
-            }
-                    
-        } */
-
 
     updateDialog(str) {
         this.dialogHTML.innerHTML = str;
@@ -262,44 +274,48 @@ class Golem {
      */
     readCells() {
         // If it's at the same cell, return
-        if (golem.actualCellIndex == golem.getActualCellIndex()) return;
+        if (this.actualCellIndex == this.getActualCellIndex()) return;
         console.log("The golem is reading")
+        if (this.isReadingLeft) return
 
         // Store the now actual cell...
-        golem.actualCell = golem.getActualCellValue();
-        golem.actualCellIndex = golem.getActualCellIndex();
+        this.actualCell = this.getActualCellValue();
+        this.actualCellIndex = this.getActualCellIndex();
+        this.nextsCells = this.actualCell + this.nextsCells
 
-        golem.contador++;
-        if (golem.actualCell == golem.charBegin)
-            console.log("At begin!")
+        this.contadorSimbolos++;
 
-        if (golem.actualCell == golem.charEnd)
-            console.log("At end!")
-            
-        if (golem.actualCell == golem.charSeparator) //
-            console.log("At end!")            
+        if (this.actualCell == this.charBegin) {
+            this.contadorSimbolos = 0
+        }            
 
+        if (this.actualCell == this.charEnd) {
 
-        // To store de old cell...
-        // If the golem is moving to left
-        if (golem.isReadingLeft) {
-            // Shift the string to right: XY -> X
-            golem.nextsCells = golem.nextsCells.slice(0, 1)
-            // Add the new symbol: X -> ZX
-            golem.nextsCells = golem.actualCell + golem.nextsCells;
-            // TODO:
-            golem.previousCells = "??";
         }
-        // If the golem is moving to right
-        else if (golem.isReadingRight) {
-            if (golem.actualCell == golem.charBegin) golem.previousCells = golem.charBegin
-            if (golem.actualCell == golem.charSeparator) golem.previousCells = golem.charBegin
+
+
+        if (this.actualCell == this.charSeparator) {
+            this.contadorSeparadores++
+            this.contadorSimbolos = 0
+            this.nextsCells = ""
+        }         
+        else {
+            this.contadorSeparadores = 0;
         }
+        //console.log("this.contadorSeparadores",this.contadorSeparadores)
+
+        this.doTasksOnFound()        
+
+        //if (this.searches.length > 0)
 
         // Update html
-        golem.previousCellsHTML.innerHTML = golem.previousCells;
-        golem.actualCellHTML.innerHTML = golem.actualCell;
-        golem.nextsCellsHTML.innerHTML = golem.nextsCells;
+        this.previousCellsHTML.innerHTML = this.contadorSimbolos;
+        this.actualCellHTML.innerHTML = this.actualCell;
+        this.nextsCellsHTML.innerHTML = this.nextsCells;
+    }
+
+    search () {
+
     }
 
     /**
@@ -350,17 +366,17 @@ class Golem {
      */
     onArrived() {
         this.isMoving = false;
-        let time = this.stopTime / (this.velocity / 10)
+        let time = this.nextStopTime / (this.velocity / 10)
         //console.log("The golem arrived!", time)
         
-        this.workAtStop();
+        this.doTasksAtStop();
 
         // Animation
         this.htmlElement.removeAttribute("class");
         if (this.hasToDrop) {
-            this.htmlElement.classList.add("dropping");
+            this.htmlElement.classList.add("lifting");
             golem.hasToDrop = false;
-            console.log("Dropping a pebble");
+            console.log("Dropping a pebble",this.htmlElement.classList);
         } else {
             this.htmlElement.classList.add("idle");
         }
@@ -426,10 +442,10 @@ class Golem {
      */
     start() {
         if (this.isDone || !this.isStarted) {
-            this.stops = []
-            this.w_m = this.tape.value;
+            this.nextStops = []
+            //this.w_m = this.tape.value;
             console.log("Golem started!", this.w_m);
-            this.constructTasksAtStop();
+            this.constructTasks();
             this.constructStops();
         }
         console.log("Golem played");
@@ -456,11 +472,12 @@ class Golem {
         console.log("Golem reseted");
         this.isDone = true;
         this.isStarted = false;
-        this.stops = []
+        this.nextStops = []
         this.w_m = this.tape.value;
-        this.actualCell = "?";
-        this.previousCells = "??";
-        this.nextsCells = "??";
+        this.actualCell = "";
+        this.previousCells = "";
+        this.nextsCells = "";
+        
     }
 
 
@@ -484,7 +501,7 @@ class Golem {
 
     dropPebble(p) {
         var c = this.getActualCellIndex();
-        this.stopTime = 2000;
+        this.nextStopTime = 2000;
         this.hasToDrop = true;
         switch (p) {
             case 'T':
@@ -493,64 +510,88 @@ class Golem {
                 break;
             case 'Q':
                 console.log('Soltando la piedra de estado actual en ',c);
-                this.piedraT = c;
+                this.piedraQ = c;
                 break;
-            case 'E':
+            case 'I':
                 console.log('Soltando la piedra de simbolo actual en ',c);
-                this.piedraT = c;
+                this.piedraI = c;
                 break;                
             default:
                 console.log(`Sorry, we are out of ${c}.`);
         }
     }
 
-    addDestination() {
-        this.stops.push(2);
-        this.stopTime = 3000;
-    }
-
     /**
      * Creates the reading stops.
      */
-    constructTasksAtStop() {
+    constructTasks() {
 
-        this.tasks.push(()=>{
+        /* this.tasks.push(()=>{
             console.log("Tarea 1")
-            this.stops.push(2);
-            console.log("Stops",this.stops)
+            this.nextStops.push(0)
+            this.nextStopTime = 2000;
+            //this.hasToDrop = true;       
+            return true;
+        }) */
+
+        this.tasksAtStops.push(()=>{
+            console.log("Poner primera piedra")
+            this.isReading = true;
+            this.nextStops.push(this.w_m.length);
             this.dropPebble('Q');
             return true;
-        })
+        })    
 
-        this.tasks.push(()=>{
-            console.log("Tarea 2")
-            this.isReading = true;
-            this.stops.push(this.w_m.length);
-            console.log("Stops",this.stops)
+        this.tasksAtStops.push(()=>{
+            console.log("Tarea 1")
+            this.nextStops.push(0)
+            this.nextStopTime = 2000;
+            //this.hasToDrop = true;       
             return true;
-        })        
+        })     
+        
+        this.searches.push(()=>{
+            if(this.contadorSeparadores == 3) {
+                console.log("3 #'s",this.actualCellIndex)
+                this.nextStops.push(this.actualCellIndex+5);
+                //this.nextStops.push(5)
+                this.nextStops.shift();
+                this.tasksAtStops.push(()=>{
+                    this.nextStops.push(1);
+                    this.dropPebble('I');
+                    return true;
+                })
+                return true;
+            }            
+        })
+            
     }
 
     walk() {        
-        var stops = this.stops.at(0);
+        var stops = this.nextStops.at(0);
         //console.log(this.stops)
         this.setDestinationAtCell(stops);
-        if (this.isAtStop) this.stops.shift();
+        if (this.isAtStop) this.nextStops.shift();
     }
 
-    workAtStop() {
-        var task = this.tasks.at(0);     
+    doTasksOnFound() {
+        var search = this.searches.at(0);     
+        if (!search)  return; 
+        if (search && search()) this.searches.shift();        
+    }    
+
+    doTasksAtStop() {
+        var task = this.tasksAtStops.at(0);     
         if (!task)  return; 
         console.log("task",task);
-        if (task && task()) this.tasks.shift();
-        
+        if (task && task()) this.tasksAtStops.shift();        
     }
 
     /**
      * Creates the reading stops.
      */
     constructStops() {
-        this.stops.push(1);
+        this.nextStops.push(0);
     }
 
     /**
@@ -572,13 +613,17 @@ class Golem {
         return this.w_m[i];
     }
 
-    setDestinationAtCell(n) {
-        n--;
+    getPositionAtCell(n) {
+        n;
         let y = this.tape.offsetTop + this.railTop;
         let x = this.tape.offsetLeft + CELLTAPEWIDTH / 2;
         x += CELLTAPEWIDTH * n;
         let pos = { x: x, y: y };
-        this.setDestinationAt(pos);
+        return pos;
+    }
+
+    setDestinationAtCell(n) {
+        this.setDestinationAt(this.getPositionAtCell(n));
     }
 
     static getStopTime() {
